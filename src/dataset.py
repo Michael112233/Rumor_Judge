@@ -37,18 +37,19 @@ batch_size = 32
 train, test, word_dict = get_dataset()
 train_dataset = RumorDataset(train)
 test_dataset = RumorDataset(test)
-
-print('======train dataset======')
-for data, label in train_dataset:
-    print(data)
-    # print(idx2str(data, word_dict))
-    print(np.array(data).shape)
-    print(label)
-
-print('======test dataset======')
-for data, label in test_dataset:
-    print(data)
-    # print(idx2str(data, word_dict))
-    print(np.array(data).shape)
-    print(label)
+train_loader = DataLoader(train_dataset, shuffle=True, batch_size=batch_size, drop_last=True)
+test_loader = DataLoader(test_dataset, shuffle=True, batch_size=batch_size, drop_last=True)
+# print('======train dataset======')
+# for data, label in train_dataset:
+#     print(data)
+#     # print(idx2str(data, word_dict))
+#     print(np.array(data).shape)
+#     print(label)
+#
+# print('======test dataset======')
+# for data, label in test_dataset:
+#     print(data)
+#     # print(idx2str(data, word_dict))
+#     print(np.array(data).shape)
+#     print(label)
 
